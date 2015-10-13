@@ -137,7 +137,7 @@ y <- dpois(x,lambda)*scale
 qplot(poi, binwidth = 1) + geom_line(aes(x,y,color='red'))
 
 
-# Check
+# CHECK
 # take lambda=5 as an example
 example2 <- poi.test(1000,1,5)
 
