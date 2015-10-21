@@ -6,6 +6,7 @@ library(MASS)
 set.seed(50)
 
 wait <- function(n,lam){
+  if(n<=0||lam<=0)stop("length & lambda should > 0")###check input value by lina
   a = NULL
   for(i in 1:n){
     a = c(a,rexp(1,rate = lam))
@@ -19,6 +20,7 @@ wait(100,5)
 # now simlate the waiting time for k events to occur with lambda = lam
 set.seed(50)
 wait.for <- function(k, lam){
+  if(k<=0||lam<=0)stop("Max k time & lambda should > 0")###check input value by lina
   time = 0
   count = 0
   a = NULL
@@ -33,6 +35,7 @@ wait.for <- function(k, lam){
 
 # Simulate gamma test to show total waiting time is gamma distributed. 
 gam.test <-function(rep, max.e, lam ){
+  if(rep<=0|lam<=0|max.e<=0)stop("length ,max sum& lambda should > 0")###check input value by lina
   a=NULL
   for (i in 1:rep){
     t = wait.for(max.e,lam)
